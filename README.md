@@ -35,6 +35,7 @@
 		└── Score.js # Component which manages the scores on a question.
 		└── UnAnsweredQuestion.js # Component which manages the unaswered question.
 		└── PollQuestion.js # Component which manages Poll Question.
+		└── Page404.js # Component which handles the non matched Urls.
 	└── constants
 		└── urls.js # Url Constants
 	└── middleware
