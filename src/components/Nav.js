@@ -1,39 +1,41 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { LEADERBOARD_URL, DASHBOARD_URL,
+	NEWQUESTION_URL, LOGOUT_URL } from '../constants/urls'
 
 function Nav({authedUser, users}) {
 	return (
-		<div className="row justify-content-md-center navbar navbar-light bg-light">
-			<div className="col-md-2">
-				<NavLink className="nav-item" to='/' exact activeClassName='active'>
-					Home
-				</NavLink>
+		authedUser &&
+		<nav className="row mb-3 rounded col-md-8 justify-content-md-center navbar navbar-expand-lg navbar-light bg-light">
+			<div className="collapse navbar-collapse">
+				<ul className="navbar-nav">
+				<li className="nav-item px-3">
+					<NavLink className="nav-link" to={DASHBOARD_URL} activeClassName='active'>
+						Home
+					</NavLink>
+				</li>
+				<li className="nav-item px-3">
+					<NavLink className="nav-link" to={NEWQUESTION_URL} activeClassName='active'>
+						New Question
+					</NavLink>
+				</li>
+				<li className="nav-item px-3">
+					<NavLink className="nav-link" to={LEADERBOARD_URL} activeClassName='active'>
+						Leader Board
+					</NavLink>
+				</li>
+				<li className="nav-item px-3">
+				 <span className="nav-link">Hello, {users[authedUser].name}</span>	
+				</li>
+				<li className="nav-item px-3">
+					<NavLink className="nav-link" to={LOGOUT_URL} activeClassName='active'>
+						Logout
+					</NavLink>
+				</li>
+				</ul>
 			</div>
-			{authedUser &&
-			<div className="col-md-2">
-				<NavLink className="nav-item" to='/newQuestion' activeClassName='active'>
-					New Question
-				</NavLink>
-			</div>}
-			<div className="col-md-2">
-				<NavLink className="nav-item" to='/leaderBoard' activeClassName='active'>
-					Leader Board
-				</NavLink>
-			</div>
-			
-			{authedUser && 
-			<div className="col-md-2">
-				Hello, {users[authedUser].name}
-			</div>}
-
-			{authedUser && 
-			<div className="col-md-2">
-				<NavLink className="nav-item" to='/logout' activeClassName='active'>
-					Logout
-				</NavLink>
-			</div>}
-		</div>
+		</nav>
 	)
 }
 

@@ -1,30 +1,32 @@
 import React, { Fragment } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch  } from 'react-router-dom'
 import Nav from './Nav'
 import Home from './Home'
 import Logout from './Logout'
 import Dashboard from './Dashboard'
 import LeaderBoard from './LeaderBoard'
 import NewQuestion from './NewQuestion'
-import AnsweredQuestion from './AnsweredQuestion'
-import UnAnsweredQuestion from './UnAnsweredQuestion'
+import PollQuestion from './PollQuestion';
+import { LEADERBOARD_URL, DASHBOARD_URL,
+		 NEWQUESTION_URL, LOGOUT_URL, POLLQUESTION_URL } from '../constants/urls'
 
 export default function App(){
     return (
 		<Router>
 			<Fragment>	
 			<div className="container">
-				<Nav/>
 				<div className="row justify-content-md-center pt-4">
+					<Nav/>
 					<div className="card col-md-8">
 						<div className="card-body">
-							<Route path='/' exact component={Home} />
-							<Route path='/dashboard' exact component={Dashboard} />
-							<Route path='/leaderboard' exact component={LeaderBoard} />
-							<Route path='/newquestion' exact component={NewQuestion} />
-							<Route path='/logout' exact component={Logout} />
-							<Route path='/answeredquestion' exact component={AnsweredQuestion} />
-							<Route path='/unansweredquestion' exact component={UnAnsweredQuestion} />
+							<Switch>
+								<Route path={DASHBOARD_URL} exact component={Dashboard} />
+								<Route path={LEADERBOARD_URL} exact component={LeaderBoard} />
+								<Route path={NEWQUESTION_URL} exact component={NewQuestion} />
+								<Route path={LOGOUT_URL} exact component={Logout} />
+								<Route path={POLLQUESTION_URL} exact component={PollQuestion} />
+								<Route component={Home} />
+							</Switch>
 						</div>
 					</div>
 				</div>

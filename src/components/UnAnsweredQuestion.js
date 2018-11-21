@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setQuestionAnwer } from '../actions/shared'
+import { ROOT_URL } from '../constants/urls'
+
 
 class UnAnsweredQuestion extends Component {
 	constructor(props) {
@@ -19,13 +21,12 @@ class UnAnsweredQuestion extends Component {
 		event.preventDefault();
 		if(this.state.value !== "") {
 			this.props.dispatch(setQuestionAnwer(this.props.authedUser, this.props.pollQuestion, this.state.value));
-			this.props.history.push('/answeredquestion');
 		}
 	  }
 
 	render() {
 		if (this.props.pollQuestion === null) {
-			return <Redirect to='/' />
+			return <Redirect to={ROOT_URL} />
 		  }
 		let { users, questions, pollQuestion } = this.props;
 		let optionOneText = questions[pollQuestion].optionOne.text;

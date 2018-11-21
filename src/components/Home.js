@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import logo from './logo.svg'
 import {handleInitialData, setLoggedInUser} from '../actions/shared'
 import { Redirect } from 'react-router-dom'
+import { DASHBOARD_URL } from '../constants/urls'
 
 class Home extends Component {
 	constructor(props) {
@@ -19,7 +20,7 @@ class Home extends Component {
 
   handleSubmit(event) {
 	event.preventDefault();
-	if(this.state.value !== "") {
+	if(this.state.value !== "" && this.state.value !== "Select User") {
 		this.props.dispatch(setLoggedInUser(this.state.value));
 	}
   }
@@ -30,7 +31,7 @@ class Home extends Component {
   render() {
 	const { authedUser, users } = this.props;
 	if (authedUser !== null) {
-		return <Redirect to='/dashboard' />
+		return <Redirect to={DASHBOARD_URL} />
 	  }
     return (
 		<div>

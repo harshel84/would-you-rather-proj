@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { setQuestion } from '../actions/shared'
+import { ROOT_URL, LEADERBOARD_URL } from '../constants/urls'
 
 class NewQuestion extends Component {
 	constructor(props) {
@@ -31,14 +32,14 @@ class NewQuestion extends Component {
 			author : this.props.authedUser
 		}
 		this.props.dispatch(setQuestion(question));
-		this.props.history.push('/leaderBoard');
+		this.props.history.push(LEADERBOARD_URL);
 	  }
 	
 	render() {
 		let {authedUser} = this.props;
 
 		if (authedUser === null) {
-			return <Redirect to='/' />
+			return <Redirect to={ROOT_URL} />
 		  }
 		return (
 			<div className="row justify-content-md-center">	
@@ -60,7 +61,7 @@ class NewQuestion extends Component {
 									<div className="row justify-content-md-center">OR</div>
 									<input className="form-control" type="text" required name="optionTwo" placeholder="Enter Option Two Text" onChange={this.handleChange} />
 								</div>
-								<input className="btn btn-default" type="submit" value="Submit" />
+								<input className="btn btn-info btn-block mt-3" type="submit" value="Submit" />
 							</form>
 						</div>
 					</div>

@@ -1,44 +1,66 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Would you rather Project
 
-## Available Scripts
+* install all project dependencies with `npm install`
+* start the development server with `npm start`
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## List of files in the project.
+```bash
+├── README.md - This file.
+├── package.json # npm package manager file. It's unlikely that you'll need to modify 	this.
+├── package-lock.json # is automatically generated.
+├── .gitignore # Git uses it to determine which files and directories to ignore for 	commit.
+├── public
+│   ├── favicon.ico # React Icon, You may change if you wish.
+	├── index.css # css file based on bootstrap.
+	├── manifest.json # manifest file.
+│   └── index.html # DO NOT MODIFY
+└── src
+	├── index.js # file which renders the root React component to the html.
+	└── actions 
+		└── authedUser.js # contains javascript methods called by components to manage the authenticated user.
+		└── questions.js  # contains javascript methods called by to manage the questions.
+		└── shared.js # contains shared javascript methods called by components
+		└── users.js # contains javascript method to manage the users.
+	└── components 
+		└── AnsweredQuestion.js # Component to manage Answered questions. 
+		└── App.js # Master page component which also contains route information.
+		└── AskedQuestion.js # Component to manage Asked question.
+		└── Dashboard.js # Component managing the authed user screen after login.
+		└── Home.js # Component managing the home screen for the app.
+		└── LeaderBoard.js # Component managing the leader board. 
+		└── logo.svg # Logo for the home page.
+		└── Logout.js # component handling logging out for the user.
+		└── Nav.js # Component which handles the navigation. 
+		└── NewQuestion.js # Component handling the new question.
+		└── Score.js # Component which manages the scores on a question.
+		└── UnAnsweredQuestion.js # Component which manages the unaswered question.
+		└── PollQuestion.js # Component which manages Poll Question.
+	└── constants
+		└── urls.js # Url Constants
+	└── middleware
+		└── index.js # Combines all middleware 
+		└── logger.js # Logging middleware
+	└── reducers
+		└── authedUser.js # Manages the store updates for Authenticates user.
+		└── index.js # Combines all the reducer into a root reducer.
+		└── pollQuestion.js # Manages the store updates for the Polled Question.
+		└── questions.js # Manages the store updates for the questions coming from the server.
+		└── users.js # Manages the store updates for the users coming from the server.
+	└── utils
+		└── _Data_.js # mimics server
+		└── api.js # exposes API consumed in the actions
+	├── App.css # Styles for your app. Feel free to customize this as you desire.
+    ├── App.js # This is the root of your app. Contains static HTML right now.
+    ├── App.test.js # Used for testing. Provided with Create React App. Testing is 		encouraged, but not required.
+    ├── Book.js # Component to manage the book with the select option.
+    ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions 	for the methods are below.
+    ├── BookShelf.js # Component to manage a Bookshelf which houses a collection of 	books.
+    ├── Contants.js # File contains all the constants.
+    ├── SearchBooks.js # Components which manages the component for searching the 		books.
+    ├── icons # Helpful images for your app. Use at your discretion.
+    │   ├── add.svg
+    │   ├── arrow-back.svg
+    │   └── arrow-drop-down.svg
+    ├── index.css # Global styles. You probably won't need to change anything here.
+    └── index.js # You should not need to modify this file. It is used for DOM 			rendering only.
+```
