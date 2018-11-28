@@ -1,7 +1,7 @@
-export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
-export const RECEIVE_QUESTION = 'RECEIVE_QUESTION'
-export const SET_POLL_QUESTION = 'SET_POLL_QUESTION'
-export const RECEIVE_QUESTION_ANSWER = 'RECEIVE_QUESTION_ANSWER'
+import { RECEIVE_QUESTIONS, 
+		 SET_POLL_QUESTION,
+		 RECEIVE_QUESTION, 
+		 RECEIVE_QUESTION_ANSWER } from '../constants/actionTypes'
 
 export function receiveQuestions (questions) {
   return {

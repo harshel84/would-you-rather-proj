@@ -7,8 +7,9 @@ import Dashboard from './Dashboard'
 import LeaderBoard from './LeaderBoard'
 import NewQuestion from './NewQuestion'
 import PollQuestion from './PollQuestion';
-import { LEADERBOARD_URL, DASHBOARD_URL,
-		 NEWQUESTION_URL, LOGOUT_URL, POLLQUESTION_URL } from '../constants/urls'
+import Page404 from './Page404'
+import { LEADERBOARD_URL, DASHBOARD_URL, NEWQUESTION_URL, 
+	     LOGOUT_URL, POLLQUESTION_URL, ROOT_URL } from '../constants/urls'
 
 export default function App(){
     return (
@@ -25,7 +26,8 @@ export default function App(){
 								<Route path={NEWQUESTION_URL} exact component={NewQuestion} />
 								<Route path={LOGOUT_URL} exact component={Logout} />
 								<Route path={POLLQUESTION_URL} exact component={PollQuestion} />
-								<Route component={Home} />
+								<Route path={ROOT_URL} exact component={Home} />
+								<Route component={Page404} />
 							</Switch>
 						</div>
 					</div>

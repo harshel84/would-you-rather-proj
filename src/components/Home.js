@@ -29,9 +29,12 @@ class Home extends Component {
     this.props.dispatch(handleInitialData())
   }
   render() {
-	const { authedUser, users } = this.props;
+	const { authedUser, users, pollQuestion } = this.props;
 	if (authedUser !== null) {
-		return <Redirect to={DASHBOARD_URL} />
+		if(pollQuestion != null) {
+			return <Redirect to={"/questions/" + pollQuestion} />
+		}
+	    return <Redirect to={DASHBOARD_URL} />
 	  }
     return (
 		<div>
@@ -64,10 +67,11 @@ class Home extends Component {
   }
 }
 
-function mapStateToProps ({ users, authedUser }) {
+function mapStateToProps ({ users, authedUser, pollQuestion }) {
 	return {
 		users: users,
-		authedUser : authedUser
+		authedUser : authedUser, 
+		pollQuestion : pollQuestion
   }
 }
 

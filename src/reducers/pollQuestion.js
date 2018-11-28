@@ -1,4 +1,4 @@
-import { SET_POLL_QUESTION } from '../actions/questions'
+import { SET_POLL_QUESTION } from '../constants/actionTypes'
 
 export default function pollQuestion (state = null, action) {
   switch(action.type) {

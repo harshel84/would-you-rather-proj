@@ -1,6 +1,4 @@
-export const RECEIVE_USERS = 'RECEIVE_USERS'
-export const RECEIVE_USER_QUESTION = 'RECEIVE_USER_QUESTION'
-export const RECIEVE_USER_QUESTION_ANSWER = 'RECIEVE_USER_QUESTION_ANSWER'
+import { RECEIVE_USERS, RECEIVE_USER_QUESTION, RECIEVE_USER_QUESTION_ANSWER } from '../constants/actionTypes'
 
 export function receiveUsers (users) {
   return {
